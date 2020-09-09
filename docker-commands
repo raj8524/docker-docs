@@ -1,0 +1,178 @@
+sudo su
+sudo su -
+docker -v
+cat /etc/os-release
+apt-get purge docker-ce
+apt autoremove
+apt-get purge docker-ce docker-ce-cli
+apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-get install docker-ce
+service docker status
+service docker restart
+cd /var/lib/docker/
+ls -l
+cd
+docker info
+docker image ls
+ocker image rm 0fb7201f92d0 6a979351fe5e 2d040a0dca7 6f7135fb47e0 80d28bedfe5d 67da37a9a360 
+docker pull tomcat
+docker pull nginx
+docker inspect nginx
+docker run -d -p tomcat:latest
+docker ps
+docker run -d --name=mynginx1 nginx
+ocker run -d -P 80:80 --name=mynginx nginx
+docker rename angry_tesla tomcat
+docker ps -a
+docker stop tomcat 
+docker stop iwghl567
+docker kill tomcat
+docker start tomcat
+docker restart tomcat
+docker stats
+docker top tomcat(container name)   or docker exec a4f186a67e9e ps -ef
+docker inspect tomcat
+docker exec tomcat ls -l
+docker exec raj ls -l logs/
+docker exec a4f186a67e9e ps -ef
+cd
+cat /etc/os-release
+exit
+ps -ef|grep docker
+docker build -f dockerfile -t myubuntu:v2-fromdockerfile .
+cat dockerfile
+hostname -i
+docker login
+docker tag myubuntu:v1 raj8524/images:myubuntu-v1
+docker push raj8524/images:myubuntu-v1
+docker rm -f 
+docker image rm -f b8c778465b00 d5eef28cf41d
+docker rm -f kdbvb8978 70944bskbkjdf
+cd /var/lib/docker/image/
+cd overlay2/
+cd layerdb/
+ls -l
+cd sha256/
+ls -l
+cd /var/lib/docker/image/overlay2/layerdb/sha256/
+docker history myubuntu:v1-dockerfile1
+docker export 6639bsjd -o mycont.tgz
+docker image prune
+docker export container-id -o mycont.tgz
+docker import mycont.tgz
+docker save img1-id img2-id img3-id -o myimg.tgz
+docker load < myimg.tgz
+
+docker run -d -p 5000:5000 --restart always --name registry registry:2
+docker tag ubuntu:latest localhost:5000/myubuntu:v1
+docker rmi ubuntu tomcat
+docker run -d -P nginx
+hostname -t
+docker rm -f 'docker ps -qa'
+docker info
+docker swarm init
+docker rm -f container-id
+docker swarm leave
+docker node ls
+docker node inspect ip-172.16.31.217(worker hostname-docker node ls)
+
+docker service create --name mysvc --replicas 3 -p 9080:80 nginx
+docker service ls
+docker service ps mysvc
+docker node ls
+docker service scale mysvc=7
+docker service create --name myapp --replicas 5 -p 3000:3000 lerndevops/samplepyapp:v1
+netstat -anp |grep 3000
+docker service update myapp --image-lerndevops/sampltpyapp:v2
+docker service rollback myapp
+docker service update myapp --replicas=9
+docker service rm mysvc
+docker service update myapp --replicas=10 --image=lerndevops/samplepyapp:v3
+docker service create --name mysvc2 --mode global -p 8080:8080 tomcat
+service docker stop
+docker swarm join-token worker
+docker swarm join-token manager
+docker node promote ip-172-31-39-110 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
